@@ -1,0 +1,96 @@
+import { pwa } from './app/config/pwa'
+import { appCreator, appDescription, appName } from './app/constants/index'
+
+export default defineNuxtConfig({
+  modules: [
+    '@vueuse/nuxt',
+    '@unocss/nuxt',
+    '@pinia/nuxt',
+    '@vite-pwa/nuxt',
+    '@nuxt/eslint',
+    '@nuxt/image',
+    '@nuxtjs/device',
+    'nuxt-headlessui',
+  ],
+
+  devtools: {
+    enabled: true,
+  },
+
+  app: {
+    head: {
+      viewport: 'width=device-width,initial-scale=1',
+      link: [
+        { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/vscode.svg' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+      ],
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: appDescription },
+        { name: 'creator', content: appCreator },
+        { name: 'author', content: appCreator },
+        { name: 'keywords', content: 'Islom Murodov, islomurodov, islomurodov.uz, islom.dev, vscode, visual studio code, best portfolio website, islom.pro, murodov.uz, murodov.pro, murodov.dev, islom.uz, Islom, Murodov, developer, portfolio, web developer, frontend developer, backend developer' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'twitter:site', content: '@islomurodov' },
+        { name: 'twitter:title', content: appName },
+        { name: 'twitter:description', content: appDescription },
+        { name: 'twitter:creator', content: appCreator },
+        { property: 'og:title', content: appName },
+        { property: 'og:description', content: appDescription },
+        { property: 'og:site:name', content: appName },
+        { property: 'og:locale', content: 'en_US' },
+      ],
+    },
+  },
+
+  css: [
+    '@unocss/reset/tailwind.css',
+  ],
+
+  runtimeConfig: {
+    GITHUB_API_URL: import.meta.env.NUXT_APP_GITHUB_API_URL,
+    BOT_TOKEN: import.meta.env.NUXT_APP_BOT_TOKEN,
+    CHAT_ID: import.meta.env.NUXT_APP_CHAT_ID,
+  },
+
+  future: {
+    compatibilityVersion: 4,
+  },
+
+  experimental: {
+    payloadExtraction: false,
+    renderJsonPayloads: true,
+    typedPages: true,
+  },
+
+  compatibilityDate: '2024-08-14',
+
+  nitro: {
+    esbuild: {
+      options: {
+        target: 'esnext',
+      },
+    },
+    prerender: {
+      crawlLinks: true,
+      routes: ['/'],
+    },
+  },
+
+  eslint: {
+    config: {
+      standalone: false,
+      nuxt: {
+        sortConfigKeys: true,
+      },
+    },
+  },
+
+  headlessui: {
+    prefix: 'Headless',
+  },
+
+  pwa,
+})
