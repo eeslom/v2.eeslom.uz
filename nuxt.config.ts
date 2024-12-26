@@ -2,16 +2,7 @@ import { pwa } from './app/config/pwa'
 import { appCreator, appDescription, appName } from './app/constants/index'
 
 export default defineNuxtConfig({
-  modules: [
-    '@vueuse/nuxt',
-    '@unocss/nuxt',
-    '@pinia/nuxt',
-    '@vite-pwa/nuxt',
-    '@nuxt/eslint',
-    '@nuxt/image',
-    '@nuxtjs/device',
-    'nuxt-headlessui',
-  ],
+  modules: ['@vueuse/nuxt', '@unocss/nuxt', '@pinia/nuxt', '@vite-pwa/nuxt', '@nuxt/eslint', '@nuxt/image', '@nuxtjs/device', 'nuxt-headlessui', '@nuxtjs/sitemap'],
 
   devtools: {
     enabled: true,
@@ -24,6 +15,7 @@ export default defineNuxtConfig({
         { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
         { rel: 'icon', type: 'image/svg+xml', href: '/vscode.svg' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        { rel: 'canonical', href: import.meta.env.NUXT_APP_PUBLIC_URL },
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -37,8 +29,14 @@ export default defineNuxtConfig({
         { name: 'twitter:title', content: appName },
         { name: 'twitter:description', content: appDescription },
         { name: 'twitter:creator', content: appCreator },
+        {
+          name: 'twitter:image',
+          content: '/og-image.webp',
+        },
         { property: 'og:title', content: appName },
+        { property: 'og:url', content: import.meta.env.NUXT_APP_PUBLIC_URL },
         { property: 'og:description', content: appDescription },
+        { property: 'og:image', content: '/og-image.webp' },
         { property: 'og:site:name', content: appName },
         { property: 'og:locale', content: 'en_US' },
       ],
@@ -49,7 +47,13 @@ export default defineNuxtConfig({
     '@unocss/reset/tailwind.css',
   ],
 
+  site: {
+    name: appName,
+    url: import.meta.env.NUXT_APP_PUBLIC_URL,
+  },
+
   runtimeConfig: {
+    PUBLIC_URL: import.meta.env.NUXT_APP_PUBLIC_URL,
     GITHUB_API_URL: import.meta.env.NUXT_APP_GITHUB_API_URL,
     BOT_TOKEN: import.meta.env.NUXT_APP_BOT_TOKEN,
     CHAT_ID: import.meta.env.NUXT_APP_CHAT_ID,
