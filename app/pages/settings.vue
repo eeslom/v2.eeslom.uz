@@ -1,5 +1,9 @@
 <script setup lang="ts">
-definePageMeta({ title: 'Settings' })
+// definePageMeta({ title: 'Settings' })
+
+useHead({
+  title: 'Settings',
+})
 </script>
 
 <template>
