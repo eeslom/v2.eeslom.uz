@@ -7,7 +7,7 @@ const statuses = [
       title: 'islomurodov.uz',
       path: '',
       icon: 'i-codicon-folder-opened',
-      class: 'text-yellow pl-2',
+      class: 'pl-2',
       titleClass: 'hidden sm:inline-block',
     },
     {

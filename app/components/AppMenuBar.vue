@@ -23,7 +23,7 @@ const { isFullscreen, toggle } = useFullscreen()
       <button aria-label="minimize" aspect-square h-full flex items-center justify-center p-3 duration-100 hover:bg-primary-sidebar>
         <div i-codicon-chrome-minimize />
       </button>
-      <button :aria-label="[isFullscreen ? 'restore' : 'maximize']" aspect-square h-full flex items-center justify-center p-3 duration-100 hover:bg-primary-sidebar @click="toggle">
+      <button :aria-label="isFullscreen ? 'restore' : 'maximize'" aspect-square h-full flex items-center justify-center p-3 duration-100 hover:bg-primary-sidebar @click="toggle">
         <div v-if="isFullscreen" i-codicon-chrome-restore />
         <div v-else i-codicon-chrome-maximize />
       </button>
