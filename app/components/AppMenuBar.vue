@@ -20,14 +20,14 @@ const { isFullscreen, toggle } = useFullscreen()
       <p><span hidden sm:inline-block>{{ appCreator }} -</span> Visual Studio Code</p>
     </div>
     <div ml-auto hidden h-full items-center sm:flex>
-      <button aspect-square h-full flex items-center justify-center p-3 duration-100 hover:bg-primary-sidebar>
+      <button aria-label="minimize" aspect-square h-full flex items-center justify-center p-3 duration-100 hover:bg-primary-sidebar>
         <div i-codicon-chrome-minimize />
       </button>
-      <button aspect-square h-full flex items-center justify-center p-3 duration-100 hover:bg-primary-sidebar @click="toggle">
+      <button :aria-label="[isFullscreen ? 'restore' : 'maximize']" aspect-square h-full flex items-center justify-center p-3 duration-100 hover:bg-primary-sidebar @click="toggle">
         <div v-if="isFullscreen" i-codicon-chrome-restore />
         <div v-else i-codicon-chrome-maximize />
       </button>
-      <button aspect-square h-full flex items-center justify-center p-3 duration-100 hover:bg-red-6>
+      <button aria-label="close" aspect-square h-full flex items-center justify-center p-3 duration-100 hover:bg-red-6>
         <div i-codicon-chrome-close />
       </button>
     </div>

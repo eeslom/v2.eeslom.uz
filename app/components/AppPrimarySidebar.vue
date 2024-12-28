@@ -42,7 +42,7 @@ const route = useRoute()
     <div h-full flex flex-col justify-between>
       <ul v-for="(navs, index) in navigations" :key="index">
         <li v-for="nav in navs" :key="nav.title" relative aspect-square h-13 flex-1 text-white :class="route.path === nav.path ? 'border-l-2 text-op-100' : 'text-op-60'">
-          <button h-full w-full flex items-center justify-center @click="router.push(nav.path)">
+          <button :aria-label="nav.title" h-full w-full flex items-center justify-center @click="router.push(nav.path)">
             <div :class="nav.icon" text-xl />
           </button>
         </li>

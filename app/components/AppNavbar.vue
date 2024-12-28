@@ -27,6 +27,11 @@ const navigations = [
     icon: 'i-vscode-icons-file-type-markdown',
     path: '/github',
   },
+  {
+    title: 'uses.md',
+    icon: 'i-vscode-icons-file-type-markdown',
+    path: '/uses',
+  },
 ] as NavType[]
 
 const router = useRouter()
@@ -37,7 +42,7 @@ const route = useRoute()
   <nav sticky top-0 w-full bg-menu-background shadow-sm>
     <ul flex gap-0.2 text-sm>
       <li v-for="nav in navigations" :key="nav.title" text-white lowercase :class="[route.path === nav.path ? 'bg-background text-op-100' : 'bg-tab-inActive text-op-60']">
-        <button flex items-center gap-x-1.5 p="x5 y2" @click="router.push(nav.path)">
+        <button :aria-label="nav.title" flex items-center gap-x-1.5 p="x5 y2" @click="router.push(nav.path)">
           <div :class="nav.icon" />
           {{ nav.title }}
         </button>

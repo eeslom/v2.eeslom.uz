@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { GithubApiRepoResponse, GithubApiResponse } from '~/types/GithubApi'
 
+definePageMeta({ title: 'GitHub' })
+
 const github = ref<GithubApiResponse>()
 const repos = ref<GithubApiRepoResponse[]>([])
 const loading = ref(true)
@@ -20,10 +22,6 @@ catch (err) {
 finally {
   loading.value = false
 }
-
-useHead({
-  title: 'GitHub',
-})
 </script>
 
 <template>

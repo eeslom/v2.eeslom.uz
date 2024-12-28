@@ -40,7 +40,7 @@ const route = useRoute()
     </h3>
     <ul text-sm>
       <li v-for="nav in navigations" :key="nav.title">
-        <button w-full flex items-center gap-x-1 hover:bg-asda hover:bg-op-60 p="x5 y0.7" :class="route.path === nav.path ? 'bg-asda' : ''" @click="router.push(nav.path)">
+        <button :aria-label="nav.title" :aria-labelledby="nav.title" w-full flex items-center gap-x-1 hover:bg-asda hover:bg-op-60 p="x5 y0.7" :class="route.path === nav.path ? 'bg-asda' : ''" @click="router.push(nav.path)">
           <div :class="nav.icon" />
           {{ nav.title }}
         </button>

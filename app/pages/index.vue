@@ -2,6 +2,8 @@
 import Typed from 'typed.js'
 import { appCreator } from '~/constants'
 
+definePageMeta({ title: 'Home' })
+
 const router = useRouter()
 
 onMounted(() => {
@@ -14,10 +16,6 @@ onMounted(() => {
 
   // eslint-disable-next-line unused-imports/no-unused-vars
   const typed = new Typed('.typed-element', options)
-})
-
-useHead({
-  title: 'Home',
 })
 </script>
 
@@ -35,10 +33,10 @@ useHead({
       </div>
 
       <div mx-auto mt-5 w-max md:mr-0 sm:mt-7 md:w-auto space-x-5>
-        <button btn @click="router.push('/projects')">
+        <button aria-label="View my works" btn @click="router.push('/projects')">
           View work
         </button>
-        <button btn-outline @click="router.push('/contact')">
+        <button aria-label="Contact me" btn-outline @click="router.push('/contact')">
           contact me
         </button>
       </div>
@@ -57,7 +55,7 @@ useHead({
         />
       </svg>
     </div>
-    <div font-montserrat absolute z--1 hidden text-30 text-white text-op-3 font-black uppercase sm:block md:text-40>
+    <div absolute z--1 hidden text-30 text-white text-op-3 font-black font-montserrat uppercase sm:block md:text-40>
       <h1>
         I build
       </h1>

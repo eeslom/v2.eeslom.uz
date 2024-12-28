@@ -2,20 +2,33 @@ import { pwa } from './app/config/pwa'
 import { appCreator, appDescription, appName } from './app/constants/index'
 
 export default defineNuxtConfig({
-  modules: ['@vueuse/nuxt', '@unocss/nuxt', '@pinia/nuxt', '@vite-pwa/nuxt', '@nuxt/eslint', '@nuxt/image', '@nuxtjs/device', 'nuxt-headlessui', '@nuxtjs/sitemap'],
+  modules: ['@vueuse/nuxt', '@unocss/nuxt', '@pinia/nuxt', '@vite-pwa/nuxt', '@nuxt/eslint', '@nuxt/image', '@nuxtjs/device', 'nuxt-headlessui', '@nuxtjs/sitemap', '@nuxt/content', 'nuxt-time'],
+
+  $production: {
+    routeRules: {
+      '/blog': { redirect: '/' },
+      '/blog/**': { redirect: '/' },
+    },
+    experimental: {
+      noVueServer: true,
+    },
+  },
 
   devtools: {
     enabled: true,
   },
 
   app: {
+    pageTransition: false,
+    layoutTransition: false,
     head: {
       viewport: 'width=device-width,initial-scale=1',
       link: [
+        { rel: 'canonical', href: import.meta.env.NUXT_APP_PUBLIC_URL },
         { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
         { rel: 'icon', type: 'image/svg+xml', href: '/vscode.svg' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
-        { rel: 'canonical', href: import.meta.env.NUXT_APP_PUBLIC_URL },
+        { rel: 'alternate', type: 'application/rss+xml', href: '/rss.xml' },
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -37,6 +50,8 @@ export default defineNuxtConfig({
         { property: 'og:url', content: import.meta.env.NUXT_APP_PUBLIC_URL },
         { property: 'og:description', content: appDescription },
         { property: 'og:image', content: '/og-image.webp' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '600' },
         { property: 'og:site:name', content: appName },
         { property: 'og:locale', content: 'en_US' },
       ],
@@ -45,11 +60,19 @@ export default defineNuxtConfig({
 
   css: [
     '@unocss/reset/tailwind.css',
+    '~/assets/main.css',
   ],
 
   site: {
-    name: appName,
     url: import.meta.env.NUXT_APP_PUBLIC_URL,
+  },
+
+  content: {
+    watch: false,
+    highlight: {
+      langs: ['js', 'ts', 'json', 'vue'],
+      theme: 'one-dark-pro',
+    },
   },
 
   runtimeConfig: {
@@ -59,6 +82,12 @@ export default defineNuxtConfig({
     CHAT_ID: import.meta.env.NUXT_APP_CHAT_ID,
   },
 
+  routeRules: {
+    '/feed.xml': { redirect: '/rss.xml' },
+  },
+
+  sourcemap: { client: true, server: false },
+
   future: {
     compatibilityVersion: 4,
   },
@@ -67,6 +96,7 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     renderJsonPayloads: true,
     typedPages: true,
+    buildCache: false,
   },
 
   compatibilityDate: '2024-08-14',
@@ -79,7 +109,15 @@ export default defineNuxtConfig({
     },
     prerender: {
       crawlLinks: true,
-      routes: ['/'],
+      routes: ['/', '/projects', '/github', '/contact', '/about'],
+    },
+  },
+
+  vite: {
+    vue: {
+      features: {
+        optionsAPI: false,
+      },
     },
   },
 
@@ -94,6 +132,10 @@ export default defineNuxtConfig({
 
   headlessui: {
     prefix: 'Headless',
+  },
+
+  image: {
+    format: ['webp'],
   },
 
   pwa,

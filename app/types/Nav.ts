@@ -5,4 +5,5 @@ export interface NavType {
   icon: string
   path: RouteLocationAsString
   class?: string
+  titleClass?: string
 }

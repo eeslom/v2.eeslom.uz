@@ -11,11 +11,15 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  content: {
+    filesystem: ['content/**/*.md'],
+  },
   shortcuts: [
     ['btn', 'shadow-sm outline-none bg-blue capitalize px-3 py-1.5 sm:px-4 sm:py-2 rounded-sm disabled:opacity-70 disabled:cursor-not-allowed hover:bg-op-80'],
     ['btn-outline', 'border-2 outline-none border-blue text-white capitalize px-3 py-1.5 sm:px-4 sm:py-2 rounded-sm disabled:opacity-70 disabled:cursor-not-allowed hover:bg-blue/20'],
     ['btn-link', 'border-b-2 border-blue outline-none text-white capitalize text-sm disabled:opacity-70 disabled:cursor-not-allowed'],
     ['inp', 'w-full mt-1 p-3 bg-gray outline-none border border-transparent focus:border-yellow'],
+    ['underlined-link', 'relative inline-block after:block after:my-[-0.5em] after:mx-[-0.25em] after:opacity-10 after:border-current after:content-empty after:duration-300 after:transition-border-color after:transition-opacity after:border-b-[0.5em] outline-none hover:after:opacity-35 active:after:opacity-35 focus:after:opacity-35'],
   ],
   theme: {
     colors: {
@@ -25,6 +29,7 @@ export default defineConfig({
       yellow: '#F1D700',
       gray: '#3C3C3C',
       green: '#16825D',
+      muted: '#d1d5db',
       asda: '#37373D',
       foreground: '#d4d4d4',
       border: '#454545',
@@ -51,6 +56,7 @@ export default defineConfig({
         sans: 'Source Sans Pro',
         mono: 'JetBrains Mono',
         montserrat: 'Montserrat',
+        code: 'Fira Code',
       },
       processors: createLocalFontProcessor(),
     }),

@@ -3,6 +3,8 @@ import { appDescription, appName } from '~/constants'
 
 provideHeadlessUseId(() => useId())
 
+const route = useRoute()
+
 const { isMobile } = useDevice()
 const isDialogOpen = ref<boolean>(false)
 const enteringTime = ref<number>(10)
@@ -18,7 +20,8 @@ onBeforeMount(() => {
 
 useHead({
   htmlAttrs: { lang: 'en' },
-  title: appName,
+  title: (route.meta.title as string) || '',
+  titleTemplate: title => (title ? `${title} - ${appName}` : title),
 })
 
 useSeoMeta({

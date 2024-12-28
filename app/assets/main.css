@@ -1,0 +1,10 @@
+a:not([href]) {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+
+p + p,
+p + blockquote {
+  @apply mt-4;
+}

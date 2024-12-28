@@ -2,6 +2,8 @@
 import type { SocialType } from '~/types/Social'
 import confetti from 'canvas-confetti'
 
+definePageMeta({ title: 'Contact' })
+
 const socials = ref<SocialType[]>([
   {
     name: 'website',
@@ -91,10 +93,6 @@ async function sendContact() {
     state.loading = false
   }
 }
-
-useHead({
-  title: 'Contact',
-})
 </script>
 
 <template>
@@ -129,9 +127,9 @@ useHead({
             </div>
             <div md:col-span-2>
               <label for="message" capitalize>Message</label>
-              <textarea id="message" v-model="state.message" required inp resize-none name="message" />
+              <textarea id="message" v-model="state.message" required resize-none inp name="message" />
             </div>
-            <button btn bg-yellow text-initial font-semibold type="submit" :disabled="state.loading">
+            <button bg-yellow text-initial font-semibold btn type="submit" :disabled="state.loading">
               Submit
             </button>
           </form>

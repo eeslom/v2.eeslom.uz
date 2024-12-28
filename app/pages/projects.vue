@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { ProjectType } from '~/types/Project'
 
+definePageMeta({ title: 'Projects' })
+
 const projects = ref<ProjectType[]>([
   {
     name: 'My Old Portfolio',
@@ -22,9 +24,9 @@ const projects = ref<ProjectType[]>([
     name: 'Qr Radar',
     description: 'Share your information just by qr code.',
     image: '/assets/projects/qr-radar.webp',
-    url: 'https://pomodoro-app-islom.netlify.app/',
+    url: 'https://qr-radar-just-code.netlify.app/',
     github_url: '',
-    technologies: ['Vue', 'Pinia'],
+    technologies: ['Vue', 'Pinia', 'NodeJS'],
   },
   {
     name: 'Pomodoro App',
@@ -84,10 +86,6 @@ const projects = ref<ProjectType[]>([
     technologies: ['Vue', 'CSS', 'Bootstrap'],
   },
 ])
-
-useHead({
-  title: 'Projects',
-})
 </script>
 
 <template>
@@ -99,7 +97,7 @@ useHead({
       <ul grid grid-cols-1 gap-6 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4>
         <li v-for="project in projects" :key="project.name" relative flex flex-col overflow-hidden rounded-sm bg-menu-background shadow-sm>
           <span inline-block h-initial w-initial bg-gray>
-            <NuxtImg v-if="project.image" loading="eager" format="webp" w-full object-contain :src="project.image" />
+            <NuxtImg v-if="project.image" loading="eager" w-full object-contain :src="project.image" />
           </span>
           <article h-full flex flex-col justify-between p-4>
             <h3 text-yellow font-semibold>
