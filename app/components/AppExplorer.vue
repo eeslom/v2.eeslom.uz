@@ -27,6 +27,11 @@ const navigations = [
     icon: 'i-vscode-icons-file-type-markdown',
     path: '/github',
   },
+  {
+    title: 'uses.md',
+    icon: 'i-vscode-icons-file-type-markdown',
+    path: '/uses',
+  },
 ] as NavType[]
 
 const router = useRouter()
