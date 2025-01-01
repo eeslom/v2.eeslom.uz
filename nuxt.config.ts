@@ -1,3 +1,4 @@
+import { useNuxt } from 'nuxt/kit'
 import { pwa } from './app/config/pwa'
 import { appCreator, appDescription, appName } from './app/constants/index'
 
@@ -8,6 +9,9 @@ export default defineNuxtConfig({
     routeRules: {
       '/blog': { redirect: '/' },
       '/blog/**': { redirect: '/' },
+    },
+    experimental: {
+      noVueServer: true,
     },
   },
 
@@ -83,6 +87,8 @@ export default defineNuxtConfig({
     '/feed.xml': { redirect: '/rss.xml' },
   },
 
+  sourcemap: { client: true, server: false },
+
   future: {
     compatibilityVersion: 4,
   },
@@ -92,6 +98,9 @@ export default defineNuxtConfig({
     renderJsonPayloads: true,
     typedPages: true,
     buildCache: false,
+    cookieStore: true,
+    viewTransition: true,
+    headNext: true,
   },
 
   compatibilityDate: '2024-08-14',
@@ -106,6 +115,28 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: ['/', '/projects', '/github', '/contact', '/about', '/rss.xml'],
     },
+    hooks: {
+      'prerender:generate': function (route) {
+        if (route.fileName) {
+          route.fileName = route.fileName.replace(
+            /(\.\w{3})\/index.html$/,
+            '$1',
+          )
+        }
+
+        if (route.error) {
+          if (route.route.startsWith('/_ipx')) {
+            console.warn('Could not prerender', route.route)
+            // ignore IPX rendering errors
+            delete route.error
+          }
+          else {
+            console.error(route.route, route.error, route)
+            process.exit(1)
+          }
+        }
+      },
+    },
   },
 
   vite: {
@@ -113,6 +144,17 @@ export default defineNuxtConfig({
       features: {
         optionsAPI: false,
       },
+    },
+  },
+
+  hooks: {
+    'components:extend': (components) => {
+      const nuxt = useNuxt()
+      for (const comp of components) {
+        if (comp.pascalName === 'StaticMarkdownRender' && nuxt.options.dev) {
+          comp.mode = 'all'
+        }
+      }
     },
   },
 
