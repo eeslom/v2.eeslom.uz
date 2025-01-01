@@ -60,14 +60,14 @@ async function sendContact() {
 
   state.loading = true
 
-  try {
-    await $fetch('/api/contact', {
-      method: 'POST',
-      body: {
-        text: `*Name:* ${state.name}\n*Email:* ${state.email}\n*Subject:* ${state.subject}\n*Message:* ${state.message}`,
-      },
-    })
+  const { status } = await useFetch('/api/contact', {
+    method: 'POST',
+    body: {
+      text: `*Name:* ${state.name}\n*Email:* ${state.email}\n*Subject:* ${state.subject}\n*Message:* ${state.message}`,
+    },
+  })
 
+  if (status.value === 'success') {
     state.name = ''
     state.email = ''
     state.subject = ''
@@ -80,12 +80,14 @@ async function sendContact() {
       origin: { y: 0.6 },
     })
   }
-  catch (err) {
-    state.error = 'Error while sending a form. Please try again later.'
-    throw err
-  }
-  finally {
+  else if (status.value === 'error') {
+    state.name = ''
+    state.email = ''
+    state.subject = ''
+    state.message = ''
     state.loading = false
+
+    state.error = 'Error while sending a form. Please try again later.'
   }
 }
 
