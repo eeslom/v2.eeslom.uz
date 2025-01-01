@@ -2,7 +2,7 @@ import { pwa } from './app/config/pwa'
 import { appCreator, appDescription, appName } from './app/constants/index'
 
 export default defineNuxtConfig({
-  modules: ['@vueuse/nuxt', '@unocss/nuxt', '@pinia/nuxt', '@vite-pwa/nuxt', '@nuxt/eslint', '@nuxt/image', '@nuxtjs/device', 'nuxt-headlessui', '@nuxtjs/sitemap', '@nuxt/content', 'nuxt-time'],
+  modules: ['@vueuse/nuxt', '@unocss/nuxt', '@pinia/nuxt', '@vite-pwa/nuxt', '@nuxt/eslint', '@nuxt/image', '@nuxtjs/device', 'nuxt-headlessui', '@nuxt/scripts', '@nuxtjs/sitemap', '@nuxt/content', 'nuxt-time'],
 
   $production: {
     routeRules: {
@@ -109,7 +109,7 @@ export default defineNuxtConfig({
     },
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/projects', '/github', '/contact', '/about'],
+      routes: ['/', '/projects', '/github', '/contact', '/about', '/rss.xml'],
     },
   },
 

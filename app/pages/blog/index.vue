@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ title: 'Blog' })
+// definePageMeta({ title: 'Blog' })
 
 const nuxtApp = useNuxtApp()
 onMounted(() => {
@@ -9,6 +9,10 @@ onMounted(() => {
     })
   })
 })
+
+useHead({
+  title: 'Blog',
+})
 </script>
 
 <template>
@@ -16,7 +20,7 @@ onMounted(() => {
     <TheTitle>
       Stuff I've Written
     </TheTitle>
-    <TheContainer class="main" text-muted text-lg>
+    <TheContainer class="main" text-lg text-muted>
       <TheBlogIndex />
     </TheContainer>
   </div>

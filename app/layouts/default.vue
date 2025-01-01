@@ -2,8 +2,8 @@
   <main h-screen w-full overflow-hidden>
     <AppMenuBar />
     <div flex overflow-hidden class="main-content">
-      <AppPrimarySidebar hidden lg:block />
-      <AppExplorer hidden md:block />
+      <AppPrimarySidebar hidden md:block />
+      <AppExplorer hidden h-full overflow-x-hidden overflow-y-auto lg:block />
       <div w-full>
         <AppNavbar w-full overflow-x-auto />
         <div h-full w-full overflow-x-hidden overflow-y-auto px-4 pb-16 pt-6 font-mono md:px-8 sm:px-6 md:pt-8>

@@ -1,4 +1,6 @@
 import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
+import { createResolver } from 'nuxt/kit'
+
 import {
   defineConfig,
   presetAttributify,
@@ -10,9 +12,11 @@ import {
   transformerVariantGroup,
 } from 'unocss'
 
+const resolver = createResolver(import.meta.url)
+
 export default defineConfig({
   content: {
-    filesystem: ['content/**/*.md'],
+    filesystem: [resolver.resolve('./content/**/*.md')],
   },
   shortcuts: [
     ['btn', 'shadow-sm outline-none bg-blue capitalize px-3 py-1.5 sm:px-4 sm:py-2 rounded-sm disabled:opacity-70 disabled:cursor-not-allowed hover:bg-op-80'],

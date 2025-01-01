@@ -13,7 +13,7 @@ const entries = await queryContent('/blog')
 </script>
 
 <template>
-  <ul flex flex-col gap-4>
+  <!-- <ul flex flex-col gap-4>
     <NuxtLink v-for="{ title, path, date } in entries" :key="path" :to="path" :title="title">
       <li>
         <article>
@@ -36,7 +36,10 @@ const entries = await queryContent('/blog')
         </article>
       </li>
     </NuxtLink>
-  </ul>
+  </ul> -->
+  <pre>
+    {{ entries }}
+  </pre>
 </template>
 
 <style scoped>

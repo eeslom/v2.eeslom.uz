@@ -6,11 +6,6 @@ import confetti from 'canvas-confetti'
 
 const socials = ref<SocialType[]>([
   {
-    name: 'website',
-    text: 'islomurodov.uz',
-    url: 'https://www.islomurodov.uz',
-  },
-  {
     name: 'email',
     text: 'hi@islomurodov.uz',
     url: 'mailto:hi@islomurodov.uz',
@@ -102,7 +97,7 @@ useHead({
 <template>
   <div>
     <TheContainer>
-      <div grid grid-cols-1 md:grid-cols-2>
+      <div grid grid-cols-1 gap-x-4 gap-y-0 md:grid-cols-2>
         <div>
           <TheTitle>
             Reach me out via socials
@@ -116,7 +111,7 @@ useHead({
           <TheTitle>
             Or fill out this form
           </TheTitle>
-          <form grid gap-4 md:grid-cols-2 @submit.prevent="sendContact">
+          <form grid gap-4 lg:grid-cols-2 @submit.prevent="sendContact">
             <div col-span-1>
               <label for="name" capitalize>Name</label>
               <input id="name" v-model="state.name" required inp name="name" type="text">
@@ -125,11 +120,11 @@ useHead({
               <label for="email" capitalize>Email</label>
               <input id="email" v-model="state.email" required inp name="email" type="email">
             </div>
-            <div md:col-span-2>
+            <div lg:col-span-2>
               <label for="subject" capitalize>Subject</label>
               <input id="subject" v-model="state.subject" required inp name="subject" type="text">
             </div>
-            <div md:col-span-2>
+            <div lg:col-span-2>
               <label for="message" capitalize>Message</label>
               <textarea id="message" v-model="state.message" required resize-none inp name="message" />
             </div>
