@@ -83,8 +83,6 @@ export default defineNuxtConfig({
     '/feed.xml': { redirect: '/rss.xml' },
   },
 
-  sourcemap: { client: true, server: false },
-
   future: {
     compatibilityVersion: 4,
   },
