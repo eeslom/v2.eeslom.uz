@@ -1,3 +1,6 @@
+import process from 'node:process'
+
+import { defineNuxtConfig } from 'nuxt/config'
 import { useNuxt } from 'nuxt/kit'
 import { pwa } from './app/config/pwa'
 import { appCreator, appDescription, appName } from './app/constants/index'
@@ -65,6 +68,7 @@ export default defineNuxtConfig({
   ],
 
   site: {
+    name: appName,
     url: import.meta.env.NUXT_APP_PUBLIC_URL,
   },
 
@@ -87,7 +91,7 @@ export default defineNuxtConfig({
     '/feed.xml': { redirect: '/rss.xml' },
   },
 
-  sourcemap: { client: true, server: false },
+  sourcemap: false,
 
   future: {
     compatibilityVersion: 4,
@@ -111,6 +115,7 @@ export default defineNuxtConfig({
         target: 'esnext',
       },
     },
+    future: { nativeSWR: true },
     prerender: {
       crawlLinks: true,
       routes: ['/', '/projects', '/github', '/contact', '/about', '/rss.xml'],
@@ -176,4 +181,10 @@ export default defineNuxtConfig({
   },
 
   pwa,
+
+  scripts: {
+    defaultScriptOptions: {
+      bundle: true,
+    },
+  },
 })
