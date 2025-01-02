@@ -72,13 +72,13 @@ async function sendContact() {
     state.email = ''
     state.subject = ''
     state.message = ''
-    state.loading = false
 
     confetti({
       particleCount: 180,
       spread: 100,
       origin: { y: 0.6 },
     })
+    state.loading = false
   }
   else if (status.value === 'error') {
     state.name = ''

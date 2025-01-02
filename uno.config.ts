@@ -25,6 +25,28 @@ export default defineConfig({
     ['inp', 'w-full mt-1 p-3 bg-gray outline-none border border-transparent focus:border-yellow'],
     ['underlined-link', 'relative inline-block after:block after:my-[-0.5em] after:mx-[-0.25em] after:opacity-10 after:border-current after:content-empty after:duration-300 after:transition-border-color after:transition-opacity after:border-b-[0.5em] outline-none hover:after:opacity-35 active:after:opacity-35 focus:after:opacity-35'],
   ],
+  variants: [
+    {
+      order: -10,
+      match: (matcher) => {
+        if (!matcher.startsWith('*:'))
+          return matcher
+        matcher = matcher.slice('*:'.length)
+        const child = matcher.match(/(first|last):/)?.[1]
+        if (child) {
+          matcher = matcher.slice(child.length + 1)
+          return {
+            matcher,
+            selector: s => `${s} > *:${child}-child`,
+          }
+        }
+        return {
+          matcher,
+          selector: s => `${s} > *`,
+        }
+      },
+    },
+  ],
   theme: {
     colors: {
       primarySidebar: '#333333',

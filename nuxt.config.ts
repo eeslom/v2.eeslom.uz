@@ -2,6 +2,7 @@ import process from 'node:process'
 
 import { defineNuxtConfig } from 'nuxt/config'
 import { useNuxt } from 'nuxt/kit'
+import { isTest } from 'std-env'
 import { pwa } from './app/config/pwa'
 import { appCreator, appDescription, appName } from './app/constants/index'
 
@@ -101,6 +102,11 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     renderJsonPayloads: true,
     typedPages: true,
+    defaults: {
+      useAsyncData: {
+        deep: false,
+      },
+    },
     buildCache: false,
     cookieStore: true,
     viewTransition: true,
@@ -110,6 +116,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-08-14',
 
   nitro: {
+    replace: {
+      'import.meta.test': isTest,
+    },
     esbuild: {
       options: {
         target: 'esnext',
