@@ -102,11 +102,6 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     renderJsonPayloads: true,
     typedPages: true,
-    defaults: {
-      useAsyncData: {
-        deep: false,
-      },
-    },
     buildCache: false,
     cookieStore: true,
     viewTransition: true,

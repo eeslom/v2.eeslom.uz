@@ -42,9 +42,6 @@ const plugin = createUnplugin(() => {
         }
       }
     },
-    buildEnd() {
-      console.log('Saved', Buffer.from(replaced.join('')).length, 'bytes')
-    },
   }
 })
 
