@@ -20,7 +20,6 @@
 
 ## Hardware
 
-- Phone: iPhone 14 Pro
 - Laptop: HP Victus 15
 - Microphone: Razer Seiren Mini
 - Headphone: Bloody G200
