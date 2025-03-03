@@ -7,8 +7,8 @@ import confetti from 'canvas-confetti'
 const socials = ref<SocialType[]>([
   {
     name: 'email',
-    text: 'hi@islomurodov.uz',
-    url: 'mailto:hi@islomurodov.uz',
+    text: 'hi@eeslom.uz',
+    url: 'mailto:hi@eeslom.uz',
   },
   {
     name: 'x',
@@ -17,8 +17,8 @@ const socials = ref<SocialType[]>([
   },
   {
     name: 'youtube',
-    text: '@islomurodov',
-    url: 'https://www.youtube.com/@islomurodov',
+    text: '@eeslom',
+    url: 'https://www.youtube.com/@eeslom',
   },
   {
     name: 'telegram',
@@ -28,7 +28,7 @@ const socials = ref<SocialType[]>([
   {
     name: 'github',
     text: 'islomurodov',
-    url: 'https://github.com/islomurodov',
+    url: 'https://github.com/eeslom',
   },
   {
     name: 'linkedin',
