@@ -27,7 +27,7 @@ const socials = ref<SocialType[]>([
   },
   {
     name: 'github',
-    text: 'islomurodov',
+    text: 'eeslom',
     url: 'https://github.com/eeslom',
   },
   {
