@@ -8,6 +8,7 @@ async function askQuestion(event: Event) {
     return
 
   try {
+    status.value = 'pending'
     const formData = new FormData(event.target as HTMLFormElement)
     await $fetch('/api/question', {
       method: 'POST',
