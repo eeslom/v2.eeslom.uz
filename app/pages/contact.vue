@@ -2,7 +2,7 @@
 import type { SocialType } from '~/types/Social'
 import confetti from 'canvas-confetti'
 
-// definePageMeta({ title: 'Contact' })
+definePageMeta({ title: 'Contact' })
 
 const socials = ref<SocialType[]>([
   {
@@ -90,10 +90,6 @@ async function sendContact() {
     state.error = 'Error while sending a form. Please try again later.'
   }
 }
-
-useHead({
-  title: 'Contact',
-})
 </script>
 
 <template>

@@ -2,7 +2,7 @@
 import Typed from 'typed.js'
 import { appCreator } from '~/constants'
 
-// definePageMeta({ title: 'Home' })
+definePageMeta({ title: 'Home' })
 
 const router = useRouter()
 
@@ -16,10 +16,6 @@ onMounted(() => {
 
   // eslint-disable-next-line unused-imports/no-unused-vars
   const typed = new Typed('.typed-element', options)
-})
-
-useHead({
-  title: 'Home',
 })
 </script>
 

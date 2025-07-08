@@ -1,12 +1,12 @@
 export default defineEventHandler(async (event) => {
-  const { BOT_TOKEN, CHAT_ID } = useRuntimeConfig(event)
+  const config = useRuntimeConfig(event)
   const { text } = await readBody(event)
 
   try {
-    await $fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    await $fetch(`https://api.telegram.org/bot${config.telegram.BOT_TOKEN}/sendMessage`, {
       method: 'POST',
       body: {
-        chat_id: CHAT_ID,
+        chat_id: config.telegram.CHAT_ID,
         text,
         parse_mode: 'Markdown',
       },

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ProjectType } from '~/types/Project'
 
-// definePageMeta({ title: 'Projects' })
+definePageMeta({ title: 'Projects' })
 
 const projects = ref<ProjectType[]>([
   {
@@ -86,10 +86,6 @@ const projects = ref<ProjectType[]>([
     technologies: ['Vue', 'CSS', 'Bootstrap'],
   },
 ])
-
-useHead({
-  title: 'Projects',
-})
 </script>
 
 <template>

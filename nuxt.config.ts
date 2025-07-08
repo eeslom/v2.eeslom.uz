@@ -19,6 +19,12 @@ export default defineNuxtConfig({
     },
   },
 
+  $test: {
+    experimental: {
+      componentIslands: true,
+    },
+  },
+
   devtools: {
     enabled: true,
   },
@@ -84,15 +90,21 @@ export default defineNuxtConfig({
   runtimeConfig: {
     PUBLIC_URL: import.meta.env.NUXT_APP_PUBLIC_URL,
     GITHUB_API_URL: import.meta.env.NUXT_APP_GITHUB_API_URL,
-    BOT_TOKEN: import.meta.env.NUXT_APP_BOT_TOKEN,
-    CHAT_ID: import.meta.env.NUXT_APP_CHAT_ID,
+    telegram: {
+      BOT_TOKEN: import.meta.env.NUXT_APP_BOT_TOKEN,
+      CHAT_ID: import.meta.env.NUXT_APP_CHAT_ID,
+    },
+    pushover: {
+      token: import.meta.env.NUXT_APP_PUSHOVER_TOKEN,
+      userKey: import.meta.env.NUXT_APP_PUSHOVER_USER_KEY,
+    },
   },
 
   routeRules: {
     '/feed.xml': { redirect: '/rss.xml' },
   },
 
-  sourcemap: false,
+  sourcemap: { client: true, server: false },
 
   future: {
     compatibilityVersion: 4,
