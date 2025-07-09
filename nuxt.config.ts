@@ -14,6 +14,9 @@ export default defineNuxtConfig({
       '/blog': { redirect: '/' },
       '/blog/**': { redirect: '/' },
     },
+    experimental: {
+      noVueServer: true,
+    },
   },
 
   $test: {
@@ -101,7 +104,7 @@ export default defineNuxtConfig({
     '/feed.xml': { redirect: '/rss.xml' },
   },
 
-  sourcemap: { client: true, server: false },
+  sourcemap: false,
 
   future: {
     compatibilityVersion: 4,
