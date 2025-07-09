@@ -14,9 +14,6 @@ export default defineNuxtConfig({
       '/blog': { redirect: '/' },
       '/blog/**': { redirect: '/' },
     },
-    experimental: {
-      noVueServer: true,
-    },
   },
 
   $test: {

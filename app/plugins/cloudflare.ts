@@ -6,6 +6,6 @@ export default defineNuxtPlugin({
       return
     }
 
-    useScriptCloudflareWebAnalytics({ token: '2f035c836f934a538185bbcbc12d6345' })
+    useScriptCloudflareWebAnalytics({ token: '17266004675c4a189aa23218df003314' })
   },
 })
