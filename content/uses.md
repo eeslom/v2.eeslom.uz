@@ -12,7 +12,7 @@
 
 ## Desktop apps
 
-- Browser: Chrome, Microsoft Edge and Firefox with Alpenglow theme.
+- Browser: Brave, Chrome and Firefox (with Alpenglow theme)
 - HTTP Client: [Insomnia](https://insomnia.rest/) or [HTTPie](https://httpie.io/) or [Postman](https://postman.com/)
 - Coding management: [WakaTime](https://wakatime.com/@islomurodov)
 - Photo editing: Adobe Photoshop 2017
@@ -20,7 +20,6 @@
 
 ## Hardware
 
-- Laptop: HP Victus 15
-- Microphone: Razer Seiren Mini
-- Headphone: Bloody G200
-- Keyboard: [Keychron K8 Pro](https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?variant=39755425382489)
+- Laptop: ASUS ZENBOOK UX31E (Yeah very old)
+- Earbuds: Nothing CMF Buds Pro 2
+- Keyboard: [Keychron K8 Pro](https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?ref=ISLOMURODOV&variant=39755425382489) and [Mechlands Blade 75](https://www.mechlands.com/products/mechlands-blade75?variant=46655576703200)
