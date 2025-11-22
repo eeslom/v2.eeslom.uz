@@ -20,6 +20,6 @@
 
 ## Hardware
 
-- Laptop: ASUS ZENBOOK UX31E (Yeah very old)
+- Laptop: Macbook Pro 16" M1 Pro 32GB
 - Earbuds: Nothing CMF Buds Pro 2
 - Keyboard: [Keychron K8 Pro](https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?ref=ISLOMURODOV&variant=39755425382489) and [Mechlands Blade 75](https://www.mechlands.com/products/mechlands-blade75?variant=46655576703200)
