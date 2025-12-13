@@ -9,8 +9,8 @@ const router = useRouter()
 onMounted(() => {
   const options = {
     strings: ['a Tech-loving developer', 'an ex-Frontend-Developer', 'a Freelancer', 'a Tech Enthusiast'],
-    typeSpeed: 90,
-    backSpeed: 90,
+    typeSpeed: 50,
+    backSpeed: 50,
     loop: true,
   }
 

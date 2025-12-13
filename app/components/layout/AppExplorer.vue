@@ -41,7 +41,7 @@ const route = useRoute()
 <template>
   <div w-330px bg-menu-background>
     <h3 px-5 pb-3 pt-2 text-xs text-white text-op-70 uppercase>
-      explorer: islomurodov.uz
+      explorer: eeslom.uz
     </h3>
     <ul text-sm>
       <li v-for="nav in navigations" :key="nav.title">

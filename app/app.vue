@@ -6,15 +6,21 @@ provideHeadlessUseId(() => useId())
 const route = useRoute()
 
 const { isMobile } = useDevice()
+const { orientation } = useScreenOrientation()
 const isDialogOpen = ref<boolean>(false)
-const enteringTime = ref<number>(10)
 
 onBeforeMount(() => {
-  if (isMobile) {
+  if (orientation.value === 'portrait-primary' && isMobile) {
     isDialogOpen.value = true
-    setInterval(() => {
-      enteringTime.value--
-    }, 1000)
+  }
+})
+
+watch(orientation, (newOrientation) => {
+  if (newOrientation === 'portrait-primary' && isMobile) {
+    isDialogOpen.value = true
+  }
+  else {
+    isDialogOpen.value = false
   }
 })
 
@@ -41,14 +47,8 @@ useSeoMeta({
           Warning!
         </HeadlessDialogTitle>
         <HeadlessDialogDescription text-gray-500 mt-2 text-sm>
-          You are visiting this site on your mobile device. We recommend you to visit this site on a desktop or a laptop for a better user experience, because this website is only adapted for bigger screens.  Unless, press OK to continue.
+          You are visiting this site on your mobile device. I highly recommend you to visit this site with a desktop or a laptop for better user experience, because this website is designed for bigger screens. Unless rotate your screen.
         </HeadlessDialogDescription>
-
-        <div mt-4>
-          <button btn :disabled="enteringTime > 0" @click="isDialogOpen = false">
-            OK <span v-if="enteringTime > 0">({{ enteringTime.toString().padStart(2, '0') }})</span>
-          </button>
-        </div>
       </div>
     </div>
   </HeadlessDialog>

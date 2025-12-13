@@ -6,3 +6,9 @@ dist
 .env
 .idea/
 public/assets/fonts
+.data
+.idea
+.DS_Store
+.vercel
+.partykit
+/logs

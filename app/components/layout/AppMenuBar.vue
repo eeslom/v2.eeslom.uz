@@ -10,7 +10,7 @@ const { isFullscreen, toggle } = useFullscreen()
   <div h-33px flex items-center justify-between bg-gray text-sm>
     <div flex flex-1 items-center gap-x-2 px-3>
       <span class="i-vscode-icons-file-type-vscode" text-base />
-      <ul hidden lg:flex>
+      <ul hidden xl:flex>
         <li v-for="item in menu" :key="item" p="x2.5 y0.7" select-none rounded-md text-white text-op-80 hover:bg-border>
           {{ item }}
         </li>

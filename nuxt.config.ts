@@ -46,7 +46,7 @@ export default defineNuxtConfig({
         { name: 'description', content: appDescription },
         { name: 'creator', content: appCreator },
         { name: 'author', content: appCreator },
-        { name: 'keywords', content: 'Islom Murodov, islomurodov, islomurodov.uz, islom.dev, vscode, visual studio code, best portfolio website, islom.pro, murodov.uz, murodov.pro, murodov.dev, islom.uz, Islom, Murodov, developer, portfolio, web developer, frontend developer, backend developer' },
+        { name: 'keywords', content: 'Islom Murodov, islomurodov, eeslom, eeslom.uz islomurodov.uz, islom.dev, vscode, visual studio code, best portfolio website, islom.pro, murodov.uz, murodov.pro, murodov.dev, islom.uz, Islom, Murodov, developer, portfolio, web developer, frontend developer, backend developer' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'twitter:site', content: '@islomurodov' },
@@ -116,7 +116,6 @@ export default defineNuxtConfig({
     typedPages: true,
     buildCache: false,
     cookieStore: true,
-    viewTransition: true,
     headNext: true,
   },
 

@@ -32,8 +32,8 @@ const socials = ref<SocialType[]>([
   },
   {
     name: 'linkedin',
-    text: 'islomurodov',
-    url: 'https://www.linkedin.com/in/islomurodov',
+    text: 'eeslom',
+    url: 'https://www.linkedin.com/in/eeslom',
   },
 ])
 const codeLines = ref<string[]>(['<span text-yellow>.socials</span> {'])

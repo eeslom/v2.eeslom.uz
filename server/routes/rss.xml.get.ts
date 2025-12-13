@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
     copyright: `© 2014-${new Date().getFullYear()} ${appCreator}. All rights reserved.`,
     author: {
       name: appCreator,
-      email: 'hi@islomurodov.uz',
+      email: 'hi@eeslom.uz',
       link: `${runtimeConfig.PUBLIC_URL}/`,
     },
   })

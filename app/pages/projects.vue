@@ -5,11 +5,11 @@ definePageMeta({ title: 'Projects' })
 
 const projects = ref<ProjectType[]>([
   {
-    name: 'My Old Portfolio',
+    name: 'My First Portfolio Website',
     description: 'My first own portfolio website. Before this one. Now it is archived.',
-    image: '/assets/projects/old-portfolio.webp',
-    url: 'https://old.islomurodov.uz/',
-    github_url: 'https://github.com/islomurodov/old.islomurodov.uz',
+    image: '/assets/projects/v1-portfolio.webp',
+    url: 'https://v1.eeslom.uz/',
+    github_url: 'https://github.com/eeslom/v1.eeslom.uz',
     technologies: ['Vue', 'Nuxt', 'TailwindCSS', 'Shadcn UI', 'Lenis'],
   },
   {
@@ -17,7 +17,7 @@ const projects = ref<ProjectType[]>([
     description: 'Totally free cinema app. Just visit and watch',
     image: '/assets/projects/imovi.webp',
     url: 'https://www.imovi.uz/',
-    github_url: 'https://github.com/islomurodov/imovi',
+    github_url: 'https://github.com/eeslom/imovi',
     technologies: ['Vue', 'Nuxt', 'Supabase', 'TMDB API'],
   },
   {
@@ -33,7 +33,7 @@ const projects = ref<ProjectType[]>([
     description: 'Pomodoro app organize your work efficiently.',
     image: '/assets/projects/pomodoro.webp',
     url: 'https://pomodoro-app-islom.netlify.app/',
-    github_url: 'https://github.com/islomurodov/pomodoro-app',
+    github_url: 'https://github.com/eeslom/pomodoro-app',
     technologies: ['Vue', 'Pinia'],
   },
   {
@@ -41,17 +41,17 @@ const projects = ref<ProjectType[]>([
     description: 'Movie, TV Shows or People browsing web app.',
     image: '/assets/projects/movie-app.webp',
     url: 'https://movie-app-v2-gray.vercel.app/',
-    github_url: 'https://github.com/islomurodov/movie-app-v2',
+    github_url: 'https://github.com/eeslom/movie-app-v2',
     technologies: ['Vue', 'Nuxt', 'TMDB API'],
   },
-  {
-    name: 'Todo App',
-    description: 'List your things that you do daily and control.',
-    image: '/assets/projects/todo-app.webp',
-    url: 'https://todo-islom.netlify.app/',
-    github_url: 'https://github.com/islomurodov/todo-app-v2',
-    technologies: ['Vue'],
-  },
+  // {
+  //   name: 'Todo App',
+  //   description: 'List your things that you do daily and control.',
+  //   image: '/assets/projects/todo-app.webp',
+  //   url: 'https://todo-islom.netlify.app/',
+  //   github_url: 'https://github.com/eeslom/todo-app-v2',
+  //   technologies: ['Vue'],
+  // },
   {
     name: 'Google Sign-up',
     description: 'Just Google Sign-Up page clone.',
@@ -65,17 +65,17 @@ const projects = ref<ProjectType[]>([
     description: 'Browse users profile from GitHub.',
     image: '/assets/projects/github-user-browser.webp',
     url: 'https://github-search-app-islom.vercel.app/',
-    github_url: 'https://github.com/islomurodov/github-user-search-app',
+    github_url: 'https://github.com/eeslom/github-user-search-app',
     technologies: ['HTML', 'CSS', 'JavaScript'],
   },
-  {
-    name: 'Smart Home',
-    description: 'Landing page called \'Smart Home\'',
-    image: '/assets/projects/smart-home.webp',
-    url: 'https://lighthearted-kulfi-0dff34.netlify.app/',
-    github_url: 'https://github.com/islomurodov/smart-home-landing-page',
-    technologies: ['HTML', 'CSS', 'TailwindCSS', 'jQuery'],
-  },
+  // {
+  //   name: 'Smart Home',
+  //   description: 'Landing page called \'Smart Home\'',
+  //   image: '/assets/projects/smart-home.webp',
+  //   url: 'https://lighthearted-kulfi-0dff34.netlify.app/',
+  //   github_url: 'https://github.com/eeslom/smart-home-landing-page',
+  //   technologies: ['HTML', 'CSS', 'TailwindCSS', 'jQuery'],
+  // },
   {
     name: 'Arxiv.uz',
     description:
@@ -94,16 +94,16 @@ const projects = ref<ProjectType[]>([
       Stuff I've built so far
     </TheTitle>
     <TheContainer mt-6>
-      <ul grid grid-cols-1 gap-6 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4>
+      <ul grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3>
         <li v-for="project in projects" :key="project.name" relative flex flex-col overflow-hidden rounded-sm bg-menu-background shadow-sm>
           <span inline-block h-initial w-initial bg-gray>
-            <NuxtImg v-if="project.image" loading="eager" w-full object-contain :alt="project.name" :src="project.image" />
+            <NuxtImg v-if="project.image" loading="eager" placeholder="blur" :preload="{ fetchPriority: 'high' }" w-full object-contain :alt="project.name" :src="project.image" />
           </span>
-          <article h-full flex flex-col justify-between p-4>
-            <h3 text-yellow font-semibold>
+          <article h-full flex flex-col justify-between gap-y-2 p-4>
+            <h3 text-lg text-yellow font-semibold>
               {{ project.name }}
             </h3>
-            <p mt-2 text-sm text-white text-op-80>
+            <p mt-2 text-base text-white text-op-80>
               {{ project.description }}
             </p>
             <div mt-3 flex flex-wrap gap-2 text-xs>
@@ -112,8 +112,8 @@ const projects = ref<ProjectType[]>([
               </span>
             </div>
             <div mt-3 space-x-5>
-              <a btn-link rel="noopener" :href="project.github_url" target="_blank">Source Code</a>
-              <a btn-link rel="noopener" :href="project.url" target="_blank">Live Demo</a>
+              <a v-if="project.github_url" btn-link rel="noopener" :href="project.github_url" target="_blank">Source Code</a>
+              <a v-if="project.url" btn-link rel="noopener" :href="project.url" target="_blank">Live Demo</a>
             </div>
           </article>
         </li>

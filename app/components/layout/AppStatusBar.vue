@@ -7,7 +7,7 @@ const count = ref<null | number>(null)
 const statuses = [
   [
     {
-      title: 'islomurodov.uz',
+      title: 'eeslom.uz',
       path: '',
       icon: 'i-codicon-folder-opened',
       class: 'pl-2',
