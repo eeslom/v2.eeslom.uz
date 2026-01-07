@@ -5,7 +5,7 @@ definePageMeta({ title: 'Uses' })
 <template>
   <div>
     <TheTitle>
-      Some of the tech and accessories I'm using
+      Some of the things I'm using
     </TheTitle>
     <TheContainer :class="$style.uses">
       <StaticMarkdownRenderer path="/uses" />
@@ -25,7 +25,11 @@ definePageMeta({ title: 'Uses' })
     @apply mt-6;
   }
 
-  ul, h4 {
+  h4:not(:first-child) {
+    @apply mt-4;
+  }
+
+  ul {
     @apply mt-4 pl-4;
 
     list-style-type: circle;
