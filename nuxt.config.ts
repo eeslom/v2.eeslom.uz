@@ -14,9 +14,6 @@ export default defineNuxtConfig({
       '/blog': { redirect: '/' },
       '/blog/**': { redirect: '/' },
     },
-    experimental: {
-      noVueServer: true,
-    },
   },
 
   $test: {
@@ -89,7 +86,10 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     PUBLIC_URL: import.meta.env.NUXT_APP_PUBLIC_URL,
-    GITHUB_API_URL: import.meta.env.NUXT_APP_GITHUB_API_URL,
+    github: {
+      API_URL: import.meta.env.NUXT_APP_GITHUB_API_URL,
+      TOKEN: import.meta.env.NUXT_APP_GITHUB_TOKEN,
+    },
     telegram: {
       BOT_TOKEN: import.meta.env.NUXT_APP_BOT_TOKEN,
       CHAT_ID: import.meta.env.NUXT_APP_CHAT_ID,
@@ -104,7 +104,7 @@ export default defineNuxtConfig({
     '/feed.xml': { redirect: '/rss.xml' },
   },
 
-  sourcemap: false,
+  sourcemap: { client: true, server: false },
 
   future: {
     compatibilityVersion: 4,
@@ -112,16 +112,16 @@ export default defineNuxtConfig({
 
   experimental: {
     payloadExtraction: false,
-    renderJsonPayloads: true,
     typedPages: true,
-    buildCache: false,
-    cookieStore: true,
-    headNext: true,
+    viewTransition: true,
   },
 
   compatibilityDate: '2024-08-14',
 
   nitro: {
+    experimental: {
+      tasks: true,
+    },
     replace: {
       'import.meta.test': isTest,
     },
@@ -164,6 +164,11 @@ export default defineNuxtConfig({
       features: {
         optionsAPI: false,
       },
+    },
+    optimizeDeps: {
+      include: [
+        'partysocket',
+      ],
     },
   },
 
