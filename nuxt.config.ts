@@ -126,15 +126,10 @@ export default defineNuxtConfig({
     replace: {
       'import.meta.test': isTest,
     },
-    esbuild: {
-      options: {
-        target: 'esnext',
-      },
-    },
     future: { nativeSWR: true },
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/projects', '/github', '/contact', '/about', '/rss.xml'],
+      routes: ['/', '/github', '/contact', '/rss.xml'],
     },
     hooks: {
       'prerender:generate': function (route) {
