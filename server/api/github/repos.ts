@@ -8,6 +8,7 @@ export default defineEventHandler(async (event) => {
     const data = await $fetch<Promise<GithubApiRepoResponse[]>>(`${runtimeConfig.github.API_URL}/users/${githubUsername}/repos`, {
       headers: {
         Authorization: `Bearer: ${runtimeConfig.github.TOKEN}`,
+        'Cache-Control': 's-maxage=3600'
       },
     })
   
