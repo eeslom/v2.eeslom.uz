@@ -4,11 +4,14 @@ import { githubUsername } from '~/constants'
 export default defineEventHandler(async (event) => {
   const runtimeConfig = useRuntimeConfig(event)
 
-  const data = await $fetch<Promise<GithubApiResponse>>(`https://api.github.com/users/${githubUsername}`, {
-    headers: {
-      Authorization: `Bearer: ${runtimeConfig.github.TOKEN}`,
-    },
-  })
+  try {
+    const data = await $fetch<Promise<GithubApiResponse>>(`${runtimeConfig.github.API_URL}/users/${githubUsername}`, {
+      headers: {
+        Authorization: `Bearer: ${runtimeConfig.github.TOKEN}`,
+      },
+    })
 
-  return data
+    return data
+  }
+  catch (error) {return error}
 })
