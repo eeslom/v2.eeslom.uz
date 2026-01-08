@@ -101,8 +101,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/projects': { prerender: true },
-    '/github': { prerender: true },
+    '/github': { swr: true },
     '/feed.xml': { redirect: '/rss.xml' },
   },
 
