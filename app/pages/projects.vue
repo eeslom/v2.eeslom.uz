@@ -5,9 +5,17 @@ definePageMeta({ title: 'Projects' })
 
 const projects = ref<ProjectType[]>([
   {
+    name: 'My Second Portfolio Website',
+    description: 'My second portfolio website. It',
+    image: '/assets/projects/large/v2-portfolio.webp',
+    url: 'https://www.eeslom.uz/',
+    github_url: 'https://github.com/eeslom/v3.eeslom.uz',
+    technologies: ['Vue', 'Nuxt', 'UnoCSS'],
+  },
+  {
     name: 'My First Portfolio Website',
     description: 'My first own portfolio website. Before this one. Now it is archived.',
-    image: '/assets/projects/v1-portfolio.webp',
+    image: '/assets/projects/large/v1-portfolio.webp',
     url: 'https://v1.eeslom.uz/',
     github_url: 'https://github.com/eeslom/v1.eeslom.uz',
     technologies: ['Vue', 'Nuxt', 'TailwindCSS', 'Shadcn UI', 'Lenis'],
@@ -15,7 +23,7 @@ const projects = ref<ProjectType[]>([
   {
     name: 'Imovi.uz',
     description: 'Totally free cinema app. Just visit and watch',
-    image: '/assets/projects/imovi.webp',
+    image: '/assets/projects/large/imovi.webp',
     url: 'https://www.imovi.uz/',
     github_url: 'https://github.com/eeslom/imovi',
     technologies: ['Vue', 'Nuxt', 'Supabase', 'TMDB API'],
@@ -23,7 +31,7 @@ const projects = ref<ProjectType[]>([
   {
     name: 'Qr Radar',
     description: 'Share your information just by qr code.',
-    image: '/assets/projects/qr-radar.webp',
+    image: '/assets/projects/large/qr-radar.webp',
     url: 'https://qr-radar-just-code.netlify.app/',
     github_url: '',
     technologies: ['Vue', 'Pinia', 'NodeJS'],
@@ -31,7 +39,7 @@ const projects = ref<ProjectType[]>([
   {
     name: 'Pomodoro App',
     description: 'Pomodoro app organize your work efficiently.',
-    image: '/assets/projects/pomodoro.webp',
+    image: '/assets/projects/large/pomodoro.webp',
     url: 'https://pomodoro-app-islom.netlify.app/',
     github_url: 'https://github.com/eeslom/pomodoro-app',
     technologies: ['Vue', 'Pinia'],
@@ -39,7 +47,7 @@ const projects = ref<ProjectType[]>([
   {
     name: 'Movie App',
     description: 'Movie, TV Shows or People browsing web app.',
-    image: '/assets/projects/movie-app.webp',
+    image: '/assets/projects/large/movie-app.webp',
     url: 'https://movie-app-v2-gray.vercel.app/',
     github_url: 'https://github.com/eeslom/movie-app-v2',
     technologies: ['Vue', 'Nuxt', 'TMDB API'],
@@ -47,7 +55,7 @@ const projects = ref<ProjectType[]>([
   // {
   //   name: 'Todo App',
   //   description: 'List your things that you do daily and control.',
-  //   image: '/assets/projects/todo-app.webp',
+  //   image: '/assets/projects/large/todo-app.webp',
   //   url: 'https://todo-islom.netlify.app/',
   //   github_url: 'https://github.com/eeslom/todo-app-v2',
   //   technologies: ['Vue'],
@@ -55,7 +63,7 @@ const projects = ref<ProjectType[]>([
   {
     name: 'Google Sign-up',
     description: 'Just Google Sign-Up page clone.',
-    image: '/assets/projects/google-signup-page-clone.webp',
+    image: '/assets/projects/large/google-signup-page-clone.webp',
     url: 'https://google-sign-up.netlify.app/',
     github_url: '',
     technologies: ['React'],
@@ -63,7 +71,7 @@ const projects = ref<ProjectType[]>([
   {
     name: 'GitHub user browser',
     description: 'Browse users profile from GitHub.',
-    image: '/assets/projects/github-user-browser.webp',
+    image: '/assets/projects/large/github-user-browser.webp',
     url: 'https://github-search-app-islom.vercel.app/',
     github_url: 'https://github.com/eeslom/github-user-search-app',
     technologies: ['HTML', 'CSS', 'JavaScript'],
@@ -71,7 +79,7 @@ const projects = ref<ProjectType[]>([
   // {
   //   name: 'Smart Home',
   //   description: 'Landing page called \'Smart Home\'',
-  //   image: '/assets/projects/smart-home.webp',
+  //   image: '/assets/projects/large/smart-home.webp',
   //   url: 'https://lighthearted-kulfi-0dff34.netlify.app/',
   //   github_url: 'https://github.com/eeslom/smart-home-landing-page',
   //   technologies: ['HTML', 'CSS', 'TailwindCSS', 'jQuery'],
@@ -80,7 +88,7 @@ const projects = ref<ProjectType[]>([
     name: 'Arxiv.uz',
     description:
       'Archiving helpful and useful data such as e-books or articles and etc.',
-    image: '/assets/projects/arxiv.webp',
+    image: '/assets/projects/large/arxiv.webp',
     url: 'https://www.arxiv.uz/',
     github_url: '',
     technologies: ['Vue', 'CSS', 'Bootstrap'],
@@ -97,7 +105,7 @@ const projects = ref<ProjectType[]>([
       <ul grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3>
         <li v-for="project in projects" :key="project.name" relative flex flex-col overflow-hidden rounded-sm bg-menu-background shadow-sm>
           <span inline-block h-initial w-initial bg-gray>
-            <NuxtImg v-if="project.image" loading="eager" placeholder="blur" :preload="{ fetchPriority: 'high' }" w-full object-contain :alt="project.name" :src="project.image" />
+            <NuxtImg v-if="project.image" loading="lazy" quality="80" :preload="{ fetchPriority: 'high' }" w-full object-contain :alt="project.name" :src="project.image" />
           </span>
           <article h-full flex flex-col justify-between gap-y-2 p-4>
             <h3 text-lg text-yellow font-semibold>
