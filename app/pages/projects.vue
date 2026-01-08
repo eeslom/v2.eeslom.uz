@@ -105,7 +105,7 @@ const projects = ref<ProjectType[]>([
       <ul grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3>
         <li v-for="project in projects" :key="project.name" relative flex flex-col overflow-hidden rounded-sm bg-menu-background shadow-sm>
           <span inline-block h-initial w-initial bg-gray>
-            <NuxtImg v-if="project.image" loading="lazy" quality="80" :preload="{ fetchPriority: 'high' }" w-full object-contain :alt="project.name" :src="project.image" />
+            <NuxtImg v-if="project.image" loading="eager" quality="80" :preload="{ fetchPriority: 'high' }" w-full object-contain :alt="project.name" :src="project.image" />
           </span>
           <article h-full flex flex-col justify-between gap-y-2 p-4>
             <h3 text-lg text-yellow font-semibold>
