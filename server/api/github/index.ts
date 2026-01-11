@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
   try {
     const data = await $fetch<Promise<GithubApiResponse>>(`${runtimeConfig.github.API_URL}/users/${githubUsername}`, {
       headers: {
-        // Authorization: `Bearer: ${runtimeConfig.github.TOKEN}`,
+        'Authorization': `Bearer: ${runtimeConfig.github.TOKEN}`,
         'Cache-Control': 's-maxage=3600',
       },
     })

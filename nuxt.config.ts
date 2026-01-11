@@ -103,6 +103,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/github': { swr: true },
     '/feed.xml': { redirect: '/rss.xml' },
+    '/assets/projects/*/**': { cache: { maxAge: 60 * 60 * 24 * 365 } },
   },
 
   sourcemap: { client: true, server: false },
